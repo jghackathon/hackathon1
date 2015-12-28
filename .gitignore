@@ -15,7 +15,6 @@
 *.dmg
 *.gz
 *.iso
-*.jar
 *.rar
 *.tar
 *.zip
@@ -43,4 +42,3 @@ Thumbs.db
 build/
 .idea/
 .gradle/
-gradle.properties

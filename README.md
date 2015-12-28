@@ -2,4 +2,4 @@
 
 ![Build Status](https://travis-ci.org/jghackathon/hackathon1.svg?branch=master)
 
-Some readme stuff
+Some readme stuff :)

@@ -1,0 +1,43 @@
+language: java
+jdk:
+  - oraclejdk8
+env:
+ - APP_NAME=tester
+
+before_install:
+ - chmod +x gradlew
+ - chmod +x enviro.sh
+
+before_script:
+ - source ./enviro.sh
+ - ./enviro.sh
+
+script:
+ - ./gradlew assemble && ./gradlew test --tests *.unit*
+ 
+deploy:
+ - edge: true
+   provider: cloudfoundry
+   username: notgerry@live.ca
+   password: jghack
+   api: https://api.run.pivotal.io
+   organization: jghackathon-org
+   space: development
+   on:
+    tags: false
+
+ - edge: true
+   provider: cloudfoundry
+   username: notgerry@live.ca
+   password: jghack
+   api: https://api.run.pivotal.io
+   organization: jghackathon-org
+   space: stage 
+   on:
+     tags: true
+
+after_deploy:
+ - ./gradlew test --tests *.integration*
+ - ./cf login -a https://api.run.pivotal.io -u notgerry@live.ca -p jghack -o jghackathon-org -s development
+ - ./cf delete -f $APP_NAME
+ - ./cf logout

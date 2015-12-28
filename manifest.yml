@@ -1,0 +1,7 @@
+---
+applications: 
+- name: appName
+  memory: 512M
+  instances: 1
+  host: hostName
+  path: build/libs/hackathon1-0.0.2-SNAPSHOT.jar

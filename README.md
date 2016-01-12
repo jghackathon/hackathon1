@@ -4,6 +4,4 @@
 
 Some readme stuff :)
 
-A new readme entry
-A new readme entry
-A new readme entry
+<(^_^)>
